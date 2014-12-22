@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+UNAME="/bin/uname.orig"
+
+if [ $# -eq 0 ] ; then
+	$UNAME
+	exit 0
+fi
+
+for arg in "$@"; do
+
+	case "$arg" in
+		-m|--machine) shift ; 
+			echo x86
+		;;
+
+		-a) shift ; 
+			$UNAME -a | sed "s/x86_64/x86/"
+		;;
+
+		*) $UNAME $arg ;;
+	esac
+
+done
