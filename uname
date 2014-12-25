@@ -12,7 +12,7 @@ for arg in "$@"; do
 
 	case "$arg" in
 		-m|--machine) shift ; 
-			echo x86
+			echo i386
 		;;
 
 		-a) shift ; 
